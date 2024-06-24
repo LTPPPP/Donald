@@ -13,7 +13,7 @@ from routes.templates import templates_bp
 
 nltk.download('punkt')
 
-app = Flask(__name__, template_folder='../templates', static_folder='../static')
+app = Flask(__name__, template_folder='./templates', static_folder='./static')
 CORS(app)
 
 app.register_blueprint(chat_bp)
