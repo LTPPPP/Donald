@@ -14,3 +14,4 @@ wikipedia
 langchain-community
 scikit-learn
 sentence-transformers
+langchain-huggingface
