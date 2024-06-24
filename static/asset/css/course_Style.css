@@ -1,0 +1,153 @@
+/* Header */
+html {
+    background-color: var(--primary-color);
+
+}
+
+/* 404 */
+.img_404 {
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* display: none; */
+    height: 100vh;
+}
+
+/* app */
+
+.app {}
+
+
+/* Header */
+.header_container {}
+
+.nav {
+    display: flex;
+
+    padding: 0 10px;
+}
+
+.menu-icon i {
+    display: block;
+    margin: 15px 0;
+    font-size: 3rem;
+    color: var(--text-color);
+}
+
+.menu-icon:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.nav-logo-link img {
+    height: 50px;
+}
+
+
+
+/* Body */
+
+.body_container {
+    /* height: 100vh; */
+}
+
+.content_container {
+    border-top: 2px solid #6f6f68;
+    padding: 0 20px;
+}
+
+
+/* Menu container*/
+
+.menu-container {
+    border-right: 2px solid #6f6f68;
+}
+
+.menu {
+    display: none;
+    /* height: 100vh; */
+    padding: 10px;
+    /* opacity: 0.6; */
+}
+
+
+.menu-item {
+    display: block;
+}
+
+.menu-title {
+    display: block;
+    padding: 5px;
+    font-size: 2rem;
+    line-height: 2rem;
+    font-weight: 600;
+}
+
+
+.menu-content {
+    text-decoration: none;
+    color: var(--text-color);
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 500;
+    padding: 10px;
+}
+
+.menu-title:hover,
+.menu-content:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    background-color: #DDDAA7;
+}
+
+/* Video container */
+
+
+.video_container {
+    height: 100vh;
+}
+
+.video_container iframe {
+    width: 100%;
+    height: 100%;
+    margin: 10px 0;
+    border-radius: 20px;
+}
+
+.video-title {
+    padding: 5px 0;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    font-weight: 600;
+}
+
+
+.video-description {
+    padding: 15px 20px;
+    background-color: #DDDAA7;
+    color: var(--text-color);
+    border-radius: 10px;
+}
+
+.video-date {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.video-content {
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+    margin: 10px 0;
+}
+
+.video-link {
+    text-decoration: none;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    color: var(--text-color);
+}
+
+.video-link:hover {
+    opacity: 0.8;
+    color: var(--green-color);
+    cursor: pointer;
+}

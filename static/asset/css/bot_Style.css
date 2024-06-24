@@ -1,0 +1,146 @@
+/* bot */
+.bot_link {
+    width: 100%;
+    padding: 0 10px;
+    position: fixed;
+    top: 90%;
+    display: flex;
+    z-index: 10;
+    justify-content: right;
+}
+
+.bot-img {
+    height: 50px;
+    animation: 1.5s infinite bot-animation;
+}
+
+@keyframes bot-animation {
+    0% {
+        transform: rotate(0);
+    }
+
+    10% {
+        transform: rotate(25deg);
+    }
+
+    20% {
+        transform: rotate(-25deg);
+    }
+
+    30% {
+        transform: rotate(25deg);
+    }
+
+    40% {
+        transform: rotate(-25deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(0);
+    }
+}
+
+.chat-container {
+    width: 100%;
+    max-width: 400px;
+    border: 3px solid var(--green-color);
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.tilte_bot {
+    font-size: 2rem;
+    color: var(--green-color);
+    margin-bottom: 10px;
+}
+
+
+.chat-box {
+    height: 200px;
+    overflow-y: auto;
+    font-size: 1.5rem;
+}
+
+.chat-input {
+    display: flex;
+    border: none;
+}
+
+.chat-input input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom-left-radius: 5px;
+}
+
+.chat-input button {
+    padding: 10px;
+    border: none;
+    background-color: var(--green-color);
+    color: var(--white-color);
+    cursor: pointer;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.chat-input button:hover {
+    background-color: #0056b3;
+}
+
+#user-input {
+    outline: none;
+    border-bottom: 3px solid var(--green-color);
+}
+
+.message {
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.message.user {
+    text-align: right;
+    color: var(--text-color);
+    border: none;
+    background-image: linear-gradient(to right, var(--green-color), var(--primary-color));
+    padding: 10px;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    transition: 0.3s;
+}
+
+.message.bot {
+    color: var(--text-color);
+    text-align: left;
+    padding: 20px 10px;
+    background-image: linear-gradient(to right, var(--green-color), var(--primary-color));
+    border: none;
+    padding: 10px;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    transition: 0.3s;
+}
+
+.bot-icon {
+    position: fixed;
+    bottom: 20px;
+    padding: 20px 10px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.bot-icon img {
+    width: 60px;
+    height: 60px;
+}

@@ -1,0 +1,141 @@
+body {
+    background-color: var(--primary-color);
+}
+
+/* Taking information */
+
+.form {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    clip-path: circle(25px at calc(100% - 45px) 45px);
+    transition: all 0.3 ease-in-out;
+}
+
+.form.active {
+    clip-path: circle(75%);
+}
+
+.form::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--black-color);
+    opacity: 0.8;
+    z-index: -1;
+}
+
+.form-content {
+    position: relative;
+    z-index: 1;
+    background-color: var(--primary-color);
+    width: 90%;
+    max-width: 600px;
+    margin: 180px auto 0;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.form-title {
+    font-size: 3.5rem;
+    line-height: 3.5rem;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.form-description {
+    font-size: 1.8rem;
+    line-height: 2rem;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+}
+
+form input {
+    width: 100%;
+    font-size: 1.8rem;
+    padding: 15px;
+    margin: 5px 0;
+    outline: none;
+    background-color: var(--white-color);
+    border: none;
+    border-radius: 8px;
+}
+
+.btn-submit:hover {
+    background-color: var(--black-color);
+    color: var(--white-color);
+}
+
+/* Taking survey */
+.app {
+    background-color: var(--white-color);
+    width: 90%;
+    max-width: 600px;
+    margin: 100px auto 0;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.survey-title {
+    font-size: 3rem;
+    line-height: 3rem;
+    color: var(--green-color);
+    font-weight: 600;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+.container {
+    padding: 20px 0;
+}
+
+#ques {
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+    color: var(--green-color);
+    font-weight: 600;
+}
+
+.btn {
+    background: var(--white-color);
+    color: var(--text-color);
+    font-weight: 600;
+    width: 100%;
+    border: 1px solid;
+    padding: 15px;
+    margin: 10px 0;
+    text-align: left;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--black-color);
+    color: var(--white-color);
+}
+
+.add-Color {
+    background-color: var(--black-color);
+    color: var(--white-color);
+}
+
+.next-btn {
+    display: none;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    font-weight: 600;
+    width: 150px;
+    border: 0;
+    padding: 10px;
+    margin: 20px auto 0;
+    border-radius: 5px;
+    cursor: pointer;
+}

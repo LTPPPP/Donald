@@ -1,0 +1,9 @@
+Flask
+Flask-Cors
+nltk
+opencv-python
+dlib
+numpy
+scipy
+google-cloud
+googletrans==4.0.0-rc1

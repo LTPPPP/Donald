@@ -1,0 +1,27 @@
+:root {
+    --white-color: #fff;
+    --black-color: #181818;
+    --text-color: #181818;
+    --primary-color: #F3F2E0;
+    --green-color: #8BB19C;
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+html {
+    /* 16px ~ 100% */
+    /* 
+        đưa về =62.5% tương đương với 1 rem = 10px 
+        nếu muốn đưa về 12px thì chỉ cần ghi 1.2px 
+        */
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Calibri', 'Roboto', sans-serif, Helvetica;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}

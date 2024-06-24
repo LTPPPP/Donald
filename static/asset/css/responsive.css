@@ -1,0 +1,366 @@
+/* PC */
+@media (min-width: 1023px) {
+    .hide-on-PC {
+        display: none;
+    }
+
+
+}
+
+/* Mobile & Tablet */
+@media (max-width: 1023px) {
+
+    .hide-on-moblile-tablet {
+        display: none;
+    }
+
+
+
+}
+
+/* Tablet */
+@media (min-width: 740px) and (max-width: 1023px) {
+    .hide-on-tablet {
+        display: none;
+    }
+
+
+
+}
+
+/* Mobile */
+@media (max-width: 739px) {
+    .hide-on-moblile {
+        display: none;
+    }
+
+    /* nav */
+    .nav-menu {
+        display: none;
+        transform: translateY(10%);
+    }
+
+
+    .nav-list {
+        list-style: none;
+        opacity: 0.9;
+        display: flex;
+        justify-content: space-around;
+        border-radius: 0;
+        background-color: #D9E2CF;
+        box-shadow: 0px 2px 10px 0 rgba(0, 0, 0, 1);
+    }
+
+    .nav-items__link {
+        display: block;
+        padding: 10px;
+        font-size: 1.5rem;
+        border-radius: 0;
+        font-weight: 600;
+        text-decoration: none;
+        color: var(--text-color);
+
+    }
+
+
+    /* Home PAGE */
+    .home_page-container {
+        background-color: var(--text-color);
+        opacity: 0.8;
+        position: absolute;
+        top: 45%;
+        /* height: 100%; */
+    }
+
+
+    .home_page-content {
+        /* margin: 20px 0; */
+        color: var(--white-color);
+        opacity: 1;
+        font-size: 1.3rem;
+        line-height: 1.5rem;
+        text-align: justify;
+    }
+
+    /* Explore PAGE */
+
+    .title-explore_page {
+        padding-top: 10%;
+        font-size: 2.5rem;
+        line-height: 2.6rem;
+        text-align: center;
+    }
+
+    .content-explore_page {
+        margin: 5px 0;
+        padding: 0 10px;
+        font-size: 1.8rem;
+        line-height: 1.8rem;
+        text-align: center;
+    }
+
+    .blog-items {
+        position: relative;
+        border-radius: 30px;
+        height: 115px;
+        padding: 15px 10px;
+        box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.8);
+        margin: 5px 15px;
+    }
+
+    .blog-author {
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+
+    .blog-header {
+        font-size: 1.6rem;
+        line-height: 1.8rem;
+        font-weight: 600;
+    }
+
+    .blog-btn-link {
+        position: absolute;
+        top: 35%;
+    }
+
+    .blog-btn {
+        border: none;
+        color: var(--text-color);
+        font-size: 1.2rem;
+        font-weight: 700;
+        /* margin-top: 50%; */
+        border-radius: 10px;
+        padding: 5px 10px;
+        cursor: pointer;
+        box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.8);
+
+    }
+
+    .blog-img img {
+        height: 100px;
+    }
+
+    /* Course PAGE */
+    #course_page-bg {
+        position: relative;
+        top: -15px;
+        padding: 100px 0 0 0;
+        background-color: var(--primary-color);
+        width: 100%;
+    }
+
+    /* Slider */
+
+    .slider {
+        position: relative;
+        height: 200px;
+        /* background-size: 100% 100%; */
+        border-radius: 0px;
+        box-shadow: 10px 10px 20px 0 rgba(0, 0, 0, 1);
+        overflow: hidden;
+    }
+
+
+    .slider-img {
+        position: relative;
+        display: block;
+        margin: auto;
+        height: 100%;
+        width: 100vw;
+        background-size: cover;
+        /* object-fit: fill; */
+    }
+
+    .slider-dot {
+        position: absolute;
+        bottom: -10px;
+        color: #fff5;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .item-title {
+        font-weight: 600;
+        font-size: 2.5rem;
+    }
+
+    .slider-content {
+        z-index: 1;
+        width: 70%;
+        position: absolute;
+        top: 20%;
+        margin-left: 55px;
+        color: var(--white-color);
+        text-align: center;
+    }
+
+    .item-description {
+        margin: 5px 0;
+        font-size: 1.6rem;
+        line-height: 2rem;
+    }
+
+    .item-btn {
+        background-color: transparent;
+        border-radius: 20px;
+        padding: 5px 15px;
+        color: var(--white-color);
+        font-size: 1.2rem;
+        font-weight: 600;
+        border: 2px solid var(--white-color);
+    }
+
+    /* Course */
+
+    .course_page-title {
+        margin: 30px 0;
+        font-weight: 600;
+        font-size: 3rem;
+    }
+
+    .course-item-img {
+        background-size: cover;
+        height: 200px;
+        width: 100%;
+        border-radius: 15px;
+    }
+
+    /* About PAGE */
+
+    /* About us */
+    .aboutUS-page {
+        padding: 0 10px;
+        position: absolute;
+        top: 35%;
+        width: 100%;
+        text-align: center;
+    }
+
+    .aboutUS-page-title {
+        font-size: 2.5rem;
+        font-weight: 600px;
+    }
+
+    .aboutUS-page-description {
+        font-size: 1.3rem;
+        margin: 10px 0;
+        line-height: 1.6rem;
+        text-align: center;
+    }
+
+    /* Our purpose */
+
+    .ourPurpose-page-bg {
+        position: relative;
+        /* background-color: var(--primary-color); */
+        padding: 20px;
+    }
+
+    .ourPurpose-page-content {
+        padding: 0px;
+    }
+
+    .ourPurpose-page-title {
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: 600px;
+    }
+
+    .ourPurpose-page-description {
+        font-size: 1.3rem;
+        margin: 10px 0;
+        line-height: 1.6rem;
+        text-align: justify;
+    }
+
+
+    /* Contact us*/
+
+    .contactUs-page-bg {
+        padding: 10px 5px;
+        background-color: var(--primary-color);
+    }
+
+    .contactUs-page-title {
+        font-size: 3rem;
+        line-height: 3rem;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .contactUs-page-form {
+        margin: 20px 0;
+        width: 100%;
+    }
+
+    .contactUs-page-input {
+        width: 100%;
+        font-size: 1.3rem;
+        border-radius: 20px;
+        border: 3px solid var(--green-color);
+        margin: 5px 0;
+        padding: 10px;
+        outline: none;
+    }
+
+    .contactUs-page-submit input {
+        width: 100%;
+        margin-top: 10px;
+        padding: 10px 20px;
+        font-size: 1.3rem;
+        font-weight: 600;
+        background-color: var(--primary-color);
+        border: none;
+        border-radius: 20px;
+        box-shadow: 0px 2px 10px 0 rgba(0, 0, 0, 1);
+    }
+
+    /* Our Member */
+
+    .ourMember-page-title {
+        font-size: 3rem;
+        font-weight: 600;
+        margin: 10px 0;
+    }
+
+    .ourMember-page-description {
+        font-size: 1.3rem;
+        margin: 10px 0;
+    }
+
+    .ourMember-page-imgMember {
+        display: flexbox;
+        width: 75px;
+        height: 75px;
+        border-radius: 50%;
+        object-fit: fill;
+        background-color: var(--primary-color);
+        border: 3px solid var(--green-color);
+    }
+
+
+    .ourMember-page-name {
+        font-weight: 600;
+        font-size: 2rem;
+        margin: 10px 0;
+    }
+
+
+    .ourMember-page-link {
+        text-decoration: none;
+        color: var(--text-color);
+        font-size: 1.4rem;
+    }
+
+    /* Footer */
+
+    .footer-container {
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+
+}

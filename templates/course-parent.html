@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miracles come!</title>
+    <!-- Logo -->
+    <link rel="icon" href="./static/asset/img/Explore/img_app.png" type="image/x-icon">
+    <!-- Link -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='asset/css/course_parent_Style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='asset/css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='asset/css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='asset/css/grid.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='asset/css/course-child_Responsive.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='asset/css/bot_Style.css') }}">
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='asset/font/fontawesome-free-6.4.2-web/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='asset/css/bot_Style.css') }}">
+
+    <!-- bot css -->
+    <script src="{{ url_for('static', filename='js/bot_JS.js') }}" defer></script>
+
+
+    <!-- link javascript -->
+    <script src="{{ url_for('static', filename='js/course-parent_JS.js') }}" defer></script>
+
+</head>
+
+<body>
+    <!-- 404 -->
+    <!-- <div style="background-image: url(./asset/img/404.jpg);" class="img_404 hide-on-PC">
+    </div> -->
+
+    <!-- app -->
+
+    <div class="app">
+
+        <!-- nav -->
+        <div class="header_container grid">
+            <div class="nav">
+                <!-- menu icon -->
+                <div class="nav-icon">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+
+                <a href="#" class="nav-logo-link">
+                    <img src="./static/asset/img/Home/logo.png" alt="" class="nav__logo ">
+                </a>
+            </div>
+        </div>
+
+        <!-- body -->
+        <div class="body_container grid">
+
+            <div class="content_container row">
+
+                <!-- list Menu -->
+
+
+
+                <!-- menu -->
+                <div class="menu">
+
+                    <div class="menu-item">
+
+                        <div class="menu-nav">
+                            <!-- menu icon -->
+                            <div class="menu-icon ">
+                                <i class="fa-solid fa-xmark"></i>
+                            </div>
+
+                            <a href="#" class="nav-logo-link">
+                                <img src="./static/asset/img/Home/logo.png" alt="" class="nav__logo ">
+                            </a>
+                        </div>
+
+                        <a href="" class="title-link">
+                            <h1 class="menu-title">
+                                Home
+                            </h1>
+                        </a>
+
+                        <a href="{{ url_for('templates_bp.course_parent') }}" class="title-link">
+                            <h1 class="menu-title">
+                                Course
+                            </h1>
+                        </a>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- video container -->
+                <div class="video_container col l-12 c-12">
+                </div>
+
+                <!-- bot -->
+
+            </div>
+            <div>
+                <a class="bot_link" onclick="toggleChat()">
+                    <div class="botNotification"></div>
+                    <video src="" autoplay="true" id="videoCheckFace"></video>
+                    <img src="./static/asset/img/Explore/img_bot.png" alt="" class="bot-img">
+                </a>
+                <div class="chat-container" id="chat-container">
+                    <label for="" class="tilte_bot">Chat bot</label>
+                    <div class="chat-box" id="chat-box"></div>
+                    <div class="chat-input">
+                        <input type="text" id="user-input" placeholder="Enter your message...">
+                        <button onclick="sendMessage()">Send</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

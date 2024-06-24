@@ -1,0 +1,162 @@
+[
+    {
+        "id": 1,
+        "ques": "Con của bạn có khó khăn trong việc giao tiếp hàng ngày không?"
+    },
+    {
+        "id": 2,
+        "ques": "Con có thường xuyên lặp lại những hành động, lời nói hay không?"
+    },
+    {
+        "id": 3,
+        "ques": "Con có khó khăn trong việc hiểu cảm xúc của người khác không?"
+    },
+    {
+        "id": 4,
+        "ques": "Con có tỏ ra bất ổn khi có những thay đổi nhỏ trong lịch trình hàng ngày không?"
+    },
+    {
+        "id": 5,
+        "ques": "Con có thường xuyên tập trung vào một số chủ đề hoặc hoạt động cụ thể không?"
+    },
+    {
+        "id": 6,
+        "ques": "Con có thường xuyên có những phản ứng cảm xúc mạnh mẽ (như giận dữ hoặc lo lắng không cần thiết) không?"
+    },
+    {
+        "id": 7,
+        "ques": "Con có khó khăn trong việc thiết lập và duy trì mối quan hệ bạn bè không?"
+    },
+    {
+        "id": 8,
+        "ques": "Con có thể tỏ ra không quan tâm đến cảm xúc của người khác không?"
+    },
+    {
+        "id": 9,
+        "ques": "Con có dễ dàng nhận thức và tuân thủ các quy tắc xã hội không?"
+    },
+    {
+        "id": 10,
+        "ques": "Con có xu hướng tập trung sâu vào một số hoạt động nhất định (như sắp xếp đồ chơi) không?"
+    },
+    {
+        "id": 11,
+        "ques": "Con có khó khăn trong việc thích ứng với các thay đổi lớn trong cuộc sống (như chuyển trường hoặc chuyển nhà) không?"
+    },
+    {
+        "id": 12,
+        "ques": "Con có thể tỏ ra không nhận thức được nguy cơ hoặc an toàn của bản thân không?"
+    },
+    {
+        "id": 13,
+        "ques": "Con có xu hướng sử dụng ngôn ngữ một cách khó hiểu hoặc cụm từ đặc biệt không?"
+    },
+    {
+        "id": 14,
+        "ques": "Con có xu hướng không thích tiếp xúc với những người lạ không?"
+    },
+    {
+        "id": 15,
+        "ques": "Con có thể dành nhiều thời gian để nghiên cứu, thu thập thông tin về các chủ đề đặc biệt không?"
+    },
+    {
+        "id": 16,
+        "ques": "Con có thể tỏ ra khó khăn trong việc thích ứng với thay đổi trong lịch trình hàng ngày không?"
+    },
+    {
+        "id": 17,
+        "ques": "Con có thể tỏ ra không quan tâm đến việc kết bạn và duy trì mối quan hệ bạn bè không?"
+    },
+    {
+        "id": 18,
+        "ques": "Con có xu hướng thường xuyên lặp lại hành động, như xoay vòng hoặc di chuyển đồ vật một cách đặc biệt không?"
+    },
+    {
+        "id": 19,
+        "ques": "Con có thể tỏ ra không cảm thông hoặc không hiểu cảm xúc của người khác không?"
+    },
+    {
+        "id": 20,
+        "ques": "Con có thể dành nhiều thời gian cho các hoạt động cụ thể mà không muốn tham gia vào các hoạt động khác không?"
+    },
+    {
+        "id": 21,
+        "ques": "Con của bạn có thể thích các hoạt động có tính chất cứng nhắc và theo trật tự không?"
+    },
+    {
+        "id": 22,
+        "ques": "Con có thể tỏ ra cực đoan trong việc yêu thích hoặc ghét một số thứ không có lý do rõ ràng không?"
+    },
+    {
+        "id": 23,
+        "ques": "Con có khó khăn trong việc duy trì một cuộc trò chuyện thông thường không?"
+    },
+    {
+        "id": 24,
+        "ques": "Con có thể có những sở thích và niềm đam mê rất đặc biệt và không phổ biến không?"
+    },
+    {
+        "id": 25,
+        "ques": "Con có thể dành nhiều thời gian để tập trung vào các chi tiết nhỏ và bỏ qua các khía cạnh lớn hơn không?"
+    },
+    {
+        "id": 26,
+        "ques": "Con có thể có những phản ứng quá mức hoặc không thích hợp trong các tình huống xã hội không?"
+    },
+    {
+        "id": 27,
+        "ques": "Con có thể dễ dàng bị kích động bởi các âm thanh, ánh sáng hoặc kích thích vật lý khác không?"
+    },
+    {
+        "id": 28,
+        "ques": "Con có thể tỏ ra không quan tâm đến việc chia sẻ cảm xúc của mình với người khác không?"
+    },
+    {
+        "id": 29,
+        "ques": "Con có thể tỏ ra thiếu nhạy cảm với cảm xúc và nhu cầu của người khác không?"
+    },
+    {
+        "id": 30,
+        "ques": "Con có thể có những hành động lặp đi lặp lại như vặn vẹo tóc, nhấp môi hoặc rung chân không?"
+    },
+    {
+        "id": 31,
+        "ques": "Con có xu hướng dành nhiều thời gian để tập trung vào các chi tiết kỹ thuật hoặc cơ học trong các đồ chơi hoặc thiết bị không?"
+    },
+    {
+        "id": 32,
+        "ques": "Con có khó khăn trong việc sử dụng ngôn ngữ một cách linh hoạt để diễn đạt ý tưởng và cảm xúc không?"
+    },
+    {
+        "id": 33,
+        "ques": "Con có thể có những phản ứng quá mức hoặc không thích hợp trong các tình huống xã hội thông thường không?"
+    },
+    {
+        "id": 34,
+        "ques": "Con có thể tỏ ra thiếu nhạy cảm với cảm xúc và nhu cầu của người khác không?"
+    },
+    {
+        "id": 35,
+        "ques": "Con có xu hướng dành nhiều thời gian cho các hoạt động cụ thể mà không muốn tham gia vào các hoạt động khác không?"
+    },
+    {
+        "id": 36,
+        "ques": "Con có khó khăn trong việc đọc hiểu ngữ cảnh xã hội, ví dụ như cách người khác biểu lộ cảm xúc qua ngôn ngữ cơ thể hoặc ngữ điệu không?"
+    },
+    {
+        "id": 37,
+        "ques": "Con có thể có những lúc tỏ ra cô đơn hoặc cách biệt với xã hội xung quanh không?"
+    },
+    {
+        "id": 38,
+        "ques": "Con có thể có những thói quen khó chấp nhận, như ăn uống theo một cách rất đặc biệt không?"
+    },
+    {
+        "id": 39,
+        "ques": "Con có khó khăn trong việc thích ứng với các thay đổi trong môi trường xung quanh, chẳng hạn như ánh sáng, âm thanh hoặc mùi vị không?"
+    },
+    {
+        "id": 40,
+        "ques": "Con có xu hướng không chú ý hoặc bỏ qua những yêu cầu xã hội hay giao tiếp của người khác không?"
+    }
+]

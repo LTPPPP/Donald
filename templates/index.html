@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Donald</title>
+
+    <!-- Logo -->
+    <link rel="icon" href="./static/asset/img/Explore/img_app.png" type="image/x-icon">
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='asset/css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='asset/css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='asset/css/grid.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='asset/css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='asset/css/bot_Style.css') }}">
+    <!-- Logo -->
+    <link rel="icon" href="./static/asset/img/Explore/img_app.png" type="image/x-icon">
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='asset/font/fontawesome-free-6.4.2-web/css/all.min.css') }}">
+    <!-- Link JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/bot_JS.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/survey_JS.js') }}" defer></script>
+</head>
+
+<body>
+
+    <!-- app -->
+
+    <div class="app ">
+
+        <!-- nav -->
+        <div class="header__container">
+            <div class="nav row">
+                <a href="" class="logo-link col l-2 m-3 c-3">
+                    <img class="nav__logo" src="./static/asset/img/Home/logo.png" alt="">
+                </a>
+
+                <div class="nav-iconMenu col l-0 m-0 c-2  hide-on-PC hide-on-tablet ">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+
+                <div class="nav-menu col l-7 m-5 c-12">
+                    <ul class="nav-list ">
+                        <li class="nav-items">
+                            <a href="#home_page-bg" class="nav-items__link">Home</a>
+                        </li>
+                        <li class="nav-items">
+                            <a href="#explore_page-bg" class="nav-items__link">Explore</a>
+                        </li>
+                        <li class="nav-items">
+                            <a href="#course_page-bg" class="nav-items__link">Course</a>
+                        </li>
+                        <li class="nav-items">
+                            <a href="#about_page" class="nav-items__link">About</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="nav-user col l-3 m-4 c-7 hide-on-moblile">
+                    <a href="{{ url_for('templates_bp.login_page') }}" class="nav-users__link">Get Started</a>
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+        <!-- bot -->
+        <div>
+            <a class="bot_link" onclick="toggleChat()">
+                <img src="./static/asset/img/Explore/img_bot.png" alt="" class="bot-img">
+            </a>
+            <div class="chat-container" id="chat-container">
+                <label for="" class="tilte_bot">Chat bot</label>
+                <div class="chat-box" id="chat-box"></div>
+                <div class="chat-input">
+                    <input type="text" id="user-input" placeholder="Enter your message...">
+                    <button onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Home PAGE -->
+
+        <div id="home_page-bg" class="">
+
+            <img src="./static/asset/img/Home/img_Home.png" alt="">
+
+            <div class="home_page grid wide">
+                <div class="home_page-container col l-4 m-12 c-12">
+                    <h1 class="home_page-title col l-12 hide-on-moblile">Donald</h1>
+                    <p class="home_page-content col l-12">The Donald Project offers online courses, early intervention
+                        therapy, psychological counselling, life skills, and social communication classes for autistic
+                        children and their families. It aims to assist them in reaching their full potential,
+                        integrating into society, and fostering a supportive environment.
+                    </p>
+                    <button class="home_page-btn l-6 hide-on-moblile"> More Info</button>
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <!-- Explore PAGE -->
+        <div id="explore_page-bg" class="grid">
+            <img src="./static/asset/img/Explore/img_Explore.png" alt="">
+
+            <div class="explore_page ">
+
+                <div class="grid wide">
+                    <div class="container-explore_page">
+
+                        <h1 class="title-explore_page">BLOG</h1>
+
+                        <p class="content-explore_page">Below are articles and blogs about this condition. You can refer
+                            to it by clicking on the read more section
+                        </p>
+                    </div>
+
+                    <div class="blog-explore_page ">
+
+                        <div class="row">
+
+                            <div class="blog-items col l-5 m-5 c-5">
+                                <div class="blog-content">
+
+                                    <div class="blog-info">
+                                        <div class="blog-author">
+                                            Shannon Des Roches Rosa
+                                        </div>
+                                        <div class="blog-header">Thinking Autism Guide</div>
+                                        <a href="https://www.feedspot.com/infiniterss.php?_src=feed_title&followfeedid=4132041&q=site:https%3A%2F%2Fwww.thinkingautismguide.com%2Ffeeds%2Fposts%2Fdefault%3Falt%3Drss"
+                                            class="blog-btn-link">
+                                            <button class="blog-btn">Read now</button>
+                                        </a>
+                                    </div>
+                                    <div class="blog-img">
+                                        <img src="./static/asset/img/Explore/img1_blog.png" alt="">
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="blog-items col l-3 m-5 c-5">
+                                <div class="blog-content">
+
+                                    <div class="blog-info">
+                                        <div class="blog-author">Seattle Children’s</div>
+                                        <div class="blog-header">The Autism Blog</div>
+                                        <a href="https://www.seattlechildrens.org/clinics/autism-center/the-autism-blog/"
+                                            class="blog-btn-link">
+                                            <button class="blog-btn">Read now</button>
+                                        </a>
+                                    </div>
+                                    <div class="blog-img">
+                                        <img src="./static/asset/img/Explore/img2_blog.png" alt="">
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="blog-items col l-3 m-5 c-6 hide-on-moblile">
+                                <div class="blog-content">
+                                    <div class="blog-info">
+                                        <div class="blog-author">Author</div>
+                                        <div class="blog-header">CONTENT 3</div>
+                                        <a href="" class="blog-btn-link">
+                                            <button class="blog-btn">Read now</button>
+                                        </a>
+                                    </div>
+                                    <div class="blog-img">
+                                        <img src="./static/asset/img/Explore/img3_blog.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="blog-items col l-3 m-5 c-6 hide-on-moblile">
+                                <div class="blog-content">
+                                    <div class="blog-info">
+                                        <div class="blog-author">Author</div>
+                                        <div class="blog-header">CONTENT 4</div>
+                                        <a href="" class="blog-btn-link">
+                                            <button class="blog-btn">Read now</button>
+                                        </a>
+                                    </div>
+                                    <div class="blog-img">
+                                        <img src="./static/asset/img/Explore/img4_blog.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="blog-items col l-3 m-5 c-6 hide-on-moblile-tablet">
+                                <div class="blog-content">
+                                    <div class="blog-info">
+                                        <div class="blog-author">Author</div>
+                                        <div class="blog-header">CONTENT 5</div>
+                                        <a href="" class="blog-btn-link">
+                                            <button class="blog-btn">Read now</button>
+                                        </a>
+                                    </div>
+                                    <div class="blog-img">
+                                        <img src="./static/asset/img/Explore/img2_blog.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="blog-items col l-5 m-5 c-6 hide-on-moblile-tablet">
+                                <div class="blog-content">
+                                    <div class="blog-info">
+                                        <div class="blog-author">Author</div>
+                                        <div class="blog-header">CONTENT 6</div>
+                                        <a href="" class="blog-btn-link">
+                                            <button class="blog-btn">Read now</button>
+                                        </a>
+                                    </div>
+                                    <div class="blog-img">
+                                        <img src="./static/asset/img/Explore/img1_blog.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+
+        <!-- Download PAGE -->
+        <div class="download_page-bg grid hide-on-moblile">
+
+            <img src="./static/asset/img/Explore/img_Download.png" alt="" class="download_page-bg-img">
+
+            <div class="download_page ">
+                <div class="grid wide">
+
+                    <div class="row">
+
+                        <div class="download_page-container col l-5 m-12 c-10">
+                            <h1 class="download_page-title">Download This App</h1>
+                            <div class="download_page-description">
+                                <img src="./static/asset/img/Explore/img_app.png" alt="" class="download_page-img">
+                                <p class="download_page-content">You can download this application to your phone to
+                                    conveniently monitor and observe your children.
+                                </p>
+                            </div>
+                            <div class="download_page-download">
+                                <div class="download_page-app">
+                                    <img src="./static/asset/img/Explore/google_play.png" alt=""
+                                        class="download_page-imgChplay">
+                                    <img src="./static/asset/img/Explore/app_store.png" alt=""
+                                        class="download_page-imgAppstore">
+                                </div>
+                                <img src="./static/asset/img/Explore/qr_code.png" alt="" class="download_page-imgQr">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <!-- Course PAGE -->
+        <div id="course_page-bg" class="grid">
+
+            <div class="course_page grid wide">
+                <!-- slider -->
+                <div style="background-image: url();" class="slider">
+                    <!-- slider img -->
+                    <div class=" slider-list">
+                        <div class="slider-item">
+                            <div style="background-image: url(./static/asset/img/Slider/img2_slider.png);"
+                                class="slider-img">
+                                <div class="slider-content">
+                                    <div class="item-title">Advertisement
+                                    </div>
+                                    <div class="item-description">Here we advertise. Contact us via
+                                    </div>
+                                    <a href="" class="btn-link">
+                                        <button class="item-btn"> CONTACT
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slider-item">
+                            <div style="background-image: url(./static/asset/img/Slider/img3_slider.png);"
+                                class="slider-img">
+                                <div class="slider-content">
+                                    <div class="item-title">Idioms
+                                    </div>
+                                    <div class="item-description">Calmly handle all situations
+                                    </div>
+                                    <a href="" class="btn-link">
+                                        <button class="item-btn"> CONTACT
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slider-item">
+                            <div style="background-image: url(./static/asset/img/Slider/img1_slider.png);"
+                                class="slider-img">
+                                <div class="slider-content">
+                                    <div class="item-title">Test For Your Child
+                                    </div>
+                                    <div class="item-description">If your child has any health or mental problems.
+                                        Suggest some learning tips for children to help improve that problem
+                                    </div>
+                                    <a href="{{ url_for('templates_bp.survey') }}" class="btn-link">
+                                        <button class="item-btn"> TEST NOW
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slider-item">
+                            <div style="background-image: url(./static/asset/img/Slider/img2_slider.png);"
+                                class="slider-img">
+                                <div class="slider-content">
+                                    <div class="item-title">Advertisement
+                                    </div>
+                                    <div class="item-description">Here we advertise. Contact us via
+                                    </div>
+                                    <a href="" class="btn-link">
+                                        <button class="item-btn"> CONTACT
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- slider button -->
+                    <div class="slider-button">
+                        <button id="button_pre">
+                            < </button>
+                                <button id="button_next">></button>
+                    </div>
+
+                    <!-- sldier dots -->
+                    <ul class="slider-dot">
+                        <li class="dot-item__active"></li>
+                        <li class="dot-item"></li>
+                        <li class="dot-item"></li>
+                        <li class="dot-item"></li>
+                        <li class="dot-item"></li>
+                    </ul>
+
+                </div>
+
+                <!-- course -->
+
+                <div class="course_page-title">Chooser Your Site</div>
+                <div class="course_page-content grid">
+                    <div class="course_page-learning row">
+
+                        <div class="course-item col l-6 m-6 c-12">
+                            <a href="{{ url_for('templates_bp.course_child') }}" class="course-item-link">
+                                <img src="./static/asset/img_Course/child_imgSite-Course.png" alt=""
+                                    class="course-item-img">
+                            </a>
+                        </div>
+
+
+
+                        <div class="course-item col l-6 m-6 c-12">
+                            <a href="{{ url_for('templates_bp.course_parent') }}" class="course-item-link">
+                                <img src="./static/asset/img_Course/parent_imgSite-Course.png" alt=""
+                                    class="course-item-img">
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- About PAGE -->
+        <div id="about_page" class="grid">
+
+            <!-- About Us -->
+
+            <div class="aboutUS-container">
+
+                <img src="./static/asset/img/About/aboutUs-bg_img.png" alt="" class="aboutUS-page-bg">
+
+                <div class="aboutUS-page">
+                    <h1 class="aboutUS-page-title">
+                        ABOUT US
+                    </h1>
+                    <p class="aboutUS-page-description">The Donald Project supports autistic children and their families
+                        through services like online courses, life skills training, and social communication classes. It
+                        aims to help children reach their potential and integrate into society while empowering families
+                        with the tools and knowledge needed for effective support.
+
+                    </p>
+                </div>
+            </div>
+
+            <!-- Our Purpose -->
+
+            <div class="ourPurpose-page-bg">
+                <div class="ourPurpose-page grid wide">
+
+                    <div class="ourPurpose-page-container row">
+
+
+                        <div class="ourPurpose-page-content col l-6 m-12 c-12">
+                            <h1 class="ourPurpose-page-title">
+                                Our Purpose
+                            </h1>
+                            <p class="ourPurpose-page-description">The purpose of The Donald Project is to provide
+                                comprehensive support for autistic children and their families through a range of
+                                specialized services. These services are designed to help autistic children reach their
+                                full potential, integrate into society, and ensure a supportive environment for their
+                                growth and development.
+                            </p>
+                        </div>
+
+                        <div class="ourPurpose-page-img  col l-6 m-12 c-12">
+
+                            <div class="row">
+                                <div class="ourPurpose-page-item col l-6 m-12 c-12">
+                                    <img src="./static/asset/img/About/purpose_img1.jpg" alt="">
+                                </div>
+
+                                <div class="ourPurpose-page-item col l-6 m-12 c-12">
+                                    <img src="./static/asset/img/About/purpose_img2.jpg" alt="">
+                                </div>
+
+                                <div class="ourPurpose-page-item col l-12 m-12 c-12">
+                                    <img src="./static/asset/img/About/purpose_img3.jpg" alt="">
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="contactUs-page-bg">
+                <div class="contactUs-page grid wide">
+                    <div class="contactUs-page-container">
+                        <div class="row">
+
+                            <h1 class="contactUs-page-title col l-12 m-12 c-12">
+
+                                <span style="color: #8BB19C;">Contact</span> Us
+                            </h1>
+
+                            <form action="" method="post" class="contactUs-page-form row">
+
+                                <div class="contactUs-page-items col l-6 m-12 c-12">
+                                    <input type="text" name="user" placeholder="Name:" class="contactUs-page-input">
+                                </div>
+
+                                <div class="contactUs-page-items col l-6 m-12 c-12">
+                                    <input type="email" name="mail" placeholder="Email:" class="contactUs-page-input">
+                                </div>
+
+                                <div class="contactUs-page-items col l-12 m-12 c-12">
+
+                                    <input type="text" name="message" placeholder="Massage:"
+                                        class="contactUs-page-input">
+                                </div>
+
+
+                                <div class="contactUs-page-submit col l-2 m-12 c-12">
+
+                                    <input type="submit" name="send" value="SEND">
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+
+            <div class="grid wide">
+                <div class="footer-container row">
+
+
+                    <div class="footer-item col l-6 m-12 c-12">
+                        <img src="./static/asset/img/Home/logo.png" alt="" class="footer_logo">
+                        <p class="footer-content">If you want advice or detailed information about our project, you can
+                            contact one of our social networks below.
+                        </p>
+                        <div class="footer-icon row">
+
+                            <a href="" class="footer-link col l-1 c-2">
+                                <i class="fa-brands fa-facebook"></i>
+                            </a>
+                            <a href="" class="footer-link col l-1 c-2">
+                                <i class="fa-brands fa-square-instagram"></i>
+                            </a>
+                            <a href="https://github.com/Aohkne/Donald" class="footer-link col l-1 c-2">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+
+                        </div>
+                    </div>
+
+
+                    <div class="footer-item col l-3 m-6 c-6">
+                        <h1 class="footer-title">Navigation</h1>
+                        <a href="#home_page-bg" class="footer-item-link">Home</a>
+                        <a href="#explore_page-bg" class="footer-item-link">Explore</a>
+                        <a href="#course_page-bg" class="footer-item-link">Course</a>
+                        <a href="#about_page" class="footer-item-link">About</a>
+                    </div>
+
+                    <div class="footer-item col l-3 m-6 c-6">
+                        <h1 class="footer-title">Contact</h1>
+                        <div href="" class="footer-item-contact">
+                            <i class="fa-solid fa-location-dot"></i>
+                            Ly Tu Trong, TP.HCM
+                        </div>
+                        <div href="" class="footer-item-contact">
+                            <i class="fa-solid fa-phone"></i>
+                            098171618
+                        </div>
+                        <div href="" class="footer-item-contact">
+                            <i class="fa-solid fa-envelope"></i>
+                            satthumientay@gmail.com
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="footer-bottom">
+                ©2024 - Project
+            </div>
+
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

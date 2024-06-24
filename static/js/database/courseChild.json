@@ -1,0 +1,26 @@
+[
+        {
+                "id": 1,
+                "title": "Cuộc Phiêu Lưu Của Mèo Vui Vẻ",
+                "img": "./static/asset/img_Course/Cuocphieuluumeovuive_Course.png",
+                "date": "June 20,2024",
+                "url": "https://www.youtube.com/embed/BkbCBuDMuJI",
+                "description": "Miracles come! The trailer aims to raise awareness among non-autistic young people to promote understanding and acceptance in future generations. It is intended that the video will be widely viewed and shared by everyone and especially teachers and parents."
+        },
+        {
+                "id": 2,
+                "title": "Dance Along with Donald",
+                "img": "./static/asset/img_Course/Dancealongwithdonald_Course.png",
+                "date": "June 20,2024",
+                "url": "https://www.youtube.com/embed/xNfgcT9dOKA",
+                "description": "Miracles come! The trailer aims to raise awareness among non-autistic young people to promote understanding and acceptance in future generations. It is intended that the video will be widely viewed and shared by everyone and especially teachers and parents."
+        },
+        {
+                "id": 3,
+                "title": "Cậu bé vui vẻ",
+                "img": "./static/asset/img_Course/caubevuive_Course.png",
+                "date": "June 20,2024",
+                "url": "https://www.youtube.com/embed/Btg7KZfFQYk",
+                "description": "Miracles come! The trailer aims to raise awareness among non-autistic young people to promote understanding and acceptance in future generations. It is intended that the video will be widely viewed and shared by everyone and especially teachers and parents."
+        }
+]

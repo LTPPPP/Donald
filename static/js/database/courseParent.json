@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "title": "Nhận biết sớm dấu hiệu tự kỷ ở trẻ",
+        "img": "./static/asset/img_Course/Nhanbietsomdauhieutukyotre.png",
+        "date": "July 27,2020",
+        "url": "https://www.youtube.com/embed/3Txw-0QStHQ",
+        "description": "Trẻ mắc bệnh tự kỷ thường có các biểu hiện như thiếu kỹ năng xã hội, ngôn ngữ, và hành vi lặp lại. Nếu cha mẹ không nhận biết được dấu hiệu này, việc điều trị sẽ gặp khó khăn. Bệnh tự kỷ có thể kèm theo các triệu chứng khác như co giật, rối loạn giấc ngủ, tăng động, lo âu, và vấn đề tiêu hóa. Tỷ lệ trẻ mắc tự kỷ ngày càng tăng, khoảng 1/100 trẻ, với trẻ trai bị nhiều hơn trẻ gái 4-6 lần. Các dấu hiệu tự kỷ có thể xuất hiện trước 3 tuổi và bao gồm: động tác lặp lại, tránh giao tiếp bằng mắt, chậm nói, và dễ khó chịu với thay đổi nhỏ. Cha mẹ cần phân biệt tự kỷ với các vấn đề khác và đảm bảo thai sản an toàn để phòng ngừa bệnh."
+    },
+    {
+        "id": 2,
+        "title": "Nguyên nhân nào dẫn đến hội chứng tự kỷ ở trẻ? | VTC Now",
+        "img": "./static/asset/img_Course/Nguyennhannaodandenhoichungtukyotre.png",
+        "date": "November 8,2022",
+        "url": "https://www.youtube.com/embed/BKYozDYzuRE",
+        "description": "VTC Now | Tỷ lệ trẻ em mắc bệnh tự kỷ ngày càng tăng cao và là mối lo ngại của nhiều cha mẹ bởi tự kỷ ảnh hưởng nghiêm trọng đến sự phát triển và tương lai của các con. Vậy đâu là nguyên nhân khiến trẻ mắc tự kỷ? Cùng lắng nghe tư vấn của ThS Đặng Thị Thanh Tùng - Bệnh viện Đa khoa Quốc tế Vinmec."
+    },
+    {
+        "id": 3,
+        "title": "Tự kỷ - nguyên nhân, triệu chứng, chẩn đoán, điều trị, bệnh học",
+        "img": "./static/asset/img_Course/Tukynguyennhantrieuchung.png",
+        "date": "July 26,2023",
+        "url": "https://www.youtube.com/embed/3Txw-0QStHQ",
+        "description": "Nhóm Osmosis (“Thẩm thấu”) gửi băng vi đê ô này đến các bạn. Song song với việc cung cấp băng vi đê ô dưới dạng truy cập mở, Osmosis cũng mang đến một nền tảng học tập điện tử giúp các sinh viên y khoa kết nối với hàng ngàn thẻ nhớ và các câu hỏi kiểm tra, theo nhu cầu riêng của từng sinh viên một.  Bạn có bao giờ muốn một thông tin nào đó ăn sâu vào trong trí não mình không? Nếu có, nhóm Osmosis (“Thẩm thấu”) sẽ giúp điều đó thành hiện thực — đừng học mà hãy thẩm thấu nó! "
+    }
+]

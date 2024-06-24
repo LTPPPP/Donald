@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Logo -->
+    <link rel="icon" href="./static/asset/img/Explore/img_app.png" type="image/x-icon">
+
+    <!-- link js -->
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <!-- link css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='asset/css/login_style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='asset/css/base.css') }}">
+
+    <script src="{{ url_for('static', filename='js/login_JS.js') }}" defer></script>
+    <title>Donald</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="forms-container">
+
+
+            <div class="signin-signup">
+
+                <img src="./static/asset/img/img_login/form_Bg1.jpg" alt="">
+
+                <!-- login -->
+                <form action="{{ url_for('templates_bp.index') }}" class="sign-in-form">
+                    <h2 class="title">Sign In</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="username" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="password" />
+                    </div>
+                    <input type="submit" value="Login" class="btn btn-submit solid" />
+
+                    <p class="social-text">Or Sign In Using</p>
+
+                    <div class="social-media">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                            <span>Facebook</span>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-github"></i>
+                            <span>Gihub</span>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-google"></i>
+                            <span>Google</span>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                    </div>
+
+                </form>
+
+
+                <!-- register -->
+                <form action="#" class="sign-up-form">
+                    <h2 class="title">Sign Up</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="username" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="password" />
+                    </div>
+                    <input type="submit" class="btn btn-submit" value="REGISTER" />
+
+                    <p class="social-text">Or Sign Up Using</p>
+
+                    <div class="social-media">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                            <span>Facebook</span>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-github"></i>
+                            <span>Gihub</span>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-google"></i>
+                            <span>Google</span>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>
+                        <span style="color: #fffcc7;">Hello,</span> Friend!
+                    </h3>
+                    <p>
+                        Register with your personal details to use all of site features
+                    </p>
+                    <button class="btn transparent" id="sign-up-btn">
+                        Sign up
+                    </button>
+                </div>
+                <img src="./static/asset/img/img_login/kidimg_loginbg.png" class="image" alt="" />
+            </div>
+            <div class="panel right-panel">
+                <div class="content">
+                    <h3>
+                        <span style="color: #fffcc7;">Welcome</span> Back!
+                    </h3>
+                    <p>
+                        Enter your personal details to use all of site features
+                    </p>
+                    <button class="btn transparent" id="sign-in-btn">
+                        Sign in
+                    </button>
+                </div>
+                <img src="./static/asset/img/img_login/kidimg_register.png" class="image" alt="" />
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

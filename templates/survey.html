@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donald</title>
+
+    <!-- Logo -->
+    <link rel="icon" href="../static/asset/img/Explore/img_app.png" type="image/x-icon">
+
+    <!-- link css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='asset/css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='asset/css/grid.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='asset/css/survey_Style.css') }}">
+
+    <!-- link js -->
+    <script src="{{ url_for('static', filename='js/survey_JS.js') }}" defer></script>
+
+</head>
+
+<body>
+    <!-- Taking infomation -->
+    <div class="form">
+        <div class="form-content">
+            <h1 class="form-title">Thông tin của bạn</h1>
+            <div class="form-description">Nhập thông tin để biết kết quả tình trạng của con bạn</div>
+            <form action="">
+                <input type="text" name="parentName" class="parentName" placeholder="Tên phụ huynh">
+                <input type="text" name="childrenName" class="childrenName" placeholder="Tên của trẻ">
+                <input type="submit" name="submit" class="btn-submit" value="Hoàn Thành">
+            </form>
+        </div>
+    </div>
+
+    <!-- Taking survey -->
+    <div class="app">
+        <h1 class="survey-title">Survey</h1>
+        <div class="container">
+            <h2 id="ques">Câu hỏi</h2>
+            <div id="answer-container">
+                <button class="btn">Không bao giờ</button>
+                <button class="btn">Hiếm khi</button>
+                <button class="btn">Thỉnh thoảng</button>
+                <button class="btn">Thường xuyên</button>
+                <button class="btn">Luôn luôn</button>
+            </div>
+            <button class="next-btn">Tiếp Theo</button>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
