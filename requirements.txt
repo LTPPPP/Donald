@@ -6,4 +6,11 @@ dlib
 numpy
 scipy
 google-cloud
-googletrans==4.0.0-rc1
+googletrans
+langchain
+chroma
+langdetect
+wikipedia
+langchain-community
+scikit-learn
+sentence-transformers
