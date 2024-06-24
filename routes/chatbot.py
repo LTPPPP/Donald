@@ -3,18 +3,18 @@ import os
 import logging
 from flask import Blueprint, request, jsonify, Flask
 import nltk
-from langchain.document_loaders import TextLoader
+from langchain_community.document_loaders import TextLoader
 from langchain.text_splitter import CharacterTextSplitter
-from langchain.embeddings import HuggingFaceEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from chromadb import Client
 from chromadb.config import Settings
-from langchain.vectorstores import Chroma
-from langchain.llms import HuggingFaceHub
-from langchain import PromptTemplate
+from langchain_community.vectorstores import Chroma
+from langchain_community.llms import HuggingFaceHub
+from langchain_core.prompts import PromptTemplate
 from langchain.schema.runnable import RunnablePassthrough
 from langchain.schema.output_parser import StrOutputParser
 from dotenv import load_dotenv
-from googletrans import Translator
+# from googletrans import Translator
 from langdetect import detect
 import wikipedia
 from numpy import dot
@@ -121,7 +121,7 @@ class ChatBot:
         return vectorizer.get_feature_names_out()
 
 bot = ChatBot()
-translator = Translator()
+# translator = Translator()
 
 @chat_bp.route('/chat', methods=['POST'])
 def chat():
@@ -154,14 +154,14 @@ def chat():
                     result = bot.rag_chain.invoke(f"{summary} {user_input}")
                     answer_start = "Answer: "
                     response = result.split(answer_start)[-1].strip()
-                    translated_response = translator.translate(response, dest='vi').text
-                    return jsonify({'response': translated_response})
+                    # translated_response = translator.translate(response, dest='vi').text
+                    return jsonify({'response': response})
 
         result = bot.rag_chain.invoke(user_input)   
         answer_start = "Answer: "
         response = result.split(answer_start)[-1].strip()
-        translated_response = translator.translate(response, dest='vi').text
-        return jsonify({'response': translated_response})
+        # translated_response = translator.translate(response, dest='vi').text
+        return jsonify({'response': response})
     except Exception as e:
         logger.error(f"Error: {e}")
         return jsonify({'error': str(e)}), 500
