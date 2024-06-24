@@ -1,7 +1,7 @@
 import sys
 import os
 import logging
-from flask import Blueprint, request, jsonify, Flask
+from flask import Blueprint, request, jsonify
 import nltk
 from langchain_community.document_loaders import TextLoader
 from langchain.text_splitter import CharacterTextSplitter
@@ -14,13 +14,12 @@ from langchain_core.prompts import PromptTemplate
 from langchain.schema.runnable import RunnablePassthrough
 from langchain.schema.output_parser import StrOutputParser
 from dotenv import load_dotenv
-# from googletrans import Translator
-from langdetect import detect
 import wikipedia
 from numpy import dot
 from numpy.linalg import norm
 from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
 from sklearn.feature_extraction.text import CountVectorizer
+from translate import Translator as TranslateTranslator
 
 # Add the directory containing your modules to the Python path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -45,7 +44,6 @@ documents = loader.load()
 
 text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=4)
 docs = text_splitter.split_documents(documents)
-print(docs)
 
 embeddings = HuggingFaceEmbeddings()
 
@@ -80,15 +78,16 @@ docsearch.persist()
 repo_id = "mistralai/Mixtral-8x7B-Instruct-v0.1"
 llm = HuggingFaceHub(
     repo_id=repo_id,
-    model_kwargs={"temperature": 1, "top_k": 64, "top_p": 0.95, "max_length": 1000},
+    model_kwargs={"temperature": 0.6, "top_k": 20, "top_p": 0.85, "max_length": 2048},
     huggingfacehub_api_token="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"
 )
 
 # Templates
 template = """
-You are an expert psychological consultant specializing in autism in children. Use the context provided to generate the most accurate and closest answers related to autism in children. 
-Your response must be limited to a maximum of 3 complete sentences and should summarize the main ideas of the context.
-Your response always end with a period ('.').
+Bạn là chuyên gia tư vấn tâm lý chuyên về tự kỷ ở trẻ em. Sử dụng ngữ cảnh cung cấp để tạo ra câu trả lời chính xác và gần gũi nhất liên quan đến tự kỷ ở trẻ em.
+Câu trả lời của bạn phải giới hạn trong 3 câu hoàn chỉnh và tóm tắt các ý chính của ngữ cảnh.
+Câu trả lời của bạn luôn kết thúc bằng dấu chấm ('.').
+Câu trả lời của bạn phải bằng tiếng Việt.
 
 Context: {context}
 Question: {question}
@@ -110,23 +109,34 @@ class ChatBot:
             | llm
             | StrOutputParser()
         )
+        self.translator = TranslateTranslator(to_lang="en")
+        self.translator_vi = TranslateTranslator(to_lang="vi")
 
     def compute_angle(self, vec1, vec2):
         cos_sim = dot(vec1, vec2) / (norm(vec1) * norm(vec2))
         return cos_sim
 
     def extract_keywords(self, text):
-        vectorizer = CountVectorizer(stop_words=ENGLISH_STOP_WORDS, max_features=5)
+        vectorizer = CountVectorizer(stop_words=list(ENGLISH_STOP_WORDS), max_features=5)
         vectorizer.fit_transform([text])
         return vectorizer.get_feature_names_out()
 
+    def translate_to_english(self, text):
+        return self.translator.translate(text)
+
+    def translate_to_vietnamese(self, text):
+        return self.translator_vi.translate(text)
+
 bot = ChatBot()
-# translator = Translator()
 
 @chat_bp.route('/chat', methods=['POST'])
 def chat():
     try:
         user_input = request.json['message']
+        
+        # Detect language and translate if necessary
+        user_input = bot.translate_to_english(user_input)
+        
         # Retrieve document and question vectors
         question_vector = embeddings.embed_query(user_input)
         search_results = docsearch.similarity_search(user_input, k=1)
@@ -141,7 +151,6 @@ def chat():
             if cos_sim >= 0.6:
                 keywords = bot.extract_keywords(user_input)
                 search_query = " ".join(keywords)
-                wikipedia.set_lang('vi')
                 try:
                     summary = wikipedia.summary(search_query)
                 except wikipedia.exceptions.DisambiguationError as e:
@@ -152,15 +161,22 @@ def chat():
                 if summary:
                     # Run the RAG chain again with the Wikipedia summary
                     result = bot.rag_chain.invoke(f"{summary} {user_input}")
+                    print(result)
                     answer_start = "Answer: "
                     response = result.split(answer_start)[-1].strip()
-                    # translated_response = translator.translate(response, dest='vi').text
+                    response = bot.translate_to_vietnamese(response)
                     return jsonify({'response': response})
 
         result = bot.rag_chain.invoke(user_input)   
         answer_start = "Answer: "
         response = result.split(answer_start)[-1].strip()
-        # translated_response = translator.translate(response, dest='vi').text
+        response = bot.translate_to_vietnamese(response)
+         # Append the conversation to the dataset file
+        with open(dataset_path, 'r', encoding='utf-8') as f:
+            existing_responses = f.read()
+        if response not in existing_responses:
+            with open(dataset_path, 'a', encoding='utf-8') as f:
+                f.write(f"Answer: {response}\n")
         return jsonify({'response': response})
     except Exception as e:
         logger.error(f"Error: {e}")
