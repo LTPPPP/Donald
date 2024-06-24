@@ -6,7 +6,7 @@ This project is a web application that utilizes various routes and templates to 
 
 Ensure you have the following installed:
 
-- Python 3.x
+- Anaconda or Miniconda
 - Node.js and npm
 
 ## Installation
@@ -17,12 +17,18 @@ Ensure you have the following installed:
    git clone https://github.com/LTPPPP/Donald.git
    cd Donald
    ```
-2. Install Python dependencies:
+2. Create a conda environment:
+
+   ```bash
+   conda create --name donald_env python=3.x
+   conda activate donald_env
+   ```
+3. Install Python dependencies:
 
    ```bash
    pip install -r requirements.txt
    ```
-3. Install Node.js dependencies:
+4. Install Node.js dependencies:
 
    ```bash
    npm install
