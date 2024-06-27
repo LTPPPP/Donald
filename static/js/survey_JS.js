@@ -64,12 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let question = arr[currQuesIndex];
 
         if (countQues) {
-            if (currQuesIndex >= 1) {
-                const currWidth = countQues.offsetWidth;
-                const newWidth = currWidth * (currQuesIndex + 1);
-                countQues.style.width = newWidth + 'px';
-                countQues.innerHTML = currQuesIndex + 1;
-            }
+            countQues.style.width = ((currQuesIndex + 1) / arr.length) * 100 + '%';
+            countQues.innerHTML = currQuesIndex + 1;
         }
 
         let questionNO = currQuesIndex + 1;
@@ -137,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
         answerContainer.style.display = 'none';
 
         let surveyTitle = document.querySelector('.survey-title');
-        surveyTitle.innerHTML = `Thank you for taking the survey!`;
+        surveyTitle.innerHTML = `Cảm ơn bạn đã hoàn thành khảo sát!`;
         surveyTitle.style.textAlign = "center";
 
         Question.style.textAlign = "center";
