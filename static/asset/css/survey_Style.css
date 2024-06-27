@@ -78,9 +78,16 @@ form input {
     background-color: var(--white-color);
     width: 90%;
     max-width: 600px;
-    margin: 100px auto 0;
+    margin: 80px auto 0;
     border-radius: 10px;
     padding: 30px;
+}
+
+.header-container {
+    border-bottom: 2px solid #333;
+    margin-bottom: 10px;
+    padding: 0 10px 10px;
+    height: 50px;
 }
 
 .survey-title {
@@ -88,8 +95,38 @@ form input {
     line-height: 3rem;
     color: var(--green-color);
     font-weight: 600;
-    border-bottom: 1px solid #333;
-    padding-bottom: 10px;
+}
+
+.next-btn {
+    /* display: none; */
+    background-color: var(--primary-color);
+    border: none;
+    font-size: 1.8rem;
+    color: var(--text-color);
+    font-weight: 600;
+    width: 120px;
+    padding: 10px 0;
+    margin-left: auto;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s linear;
+}
+
+.next-btn:hover {
+    background-color: var(--black-color);
+    color: var(--white-color);
+}
+
+.number-ques {
+    background-image: linear-gradient(to right, #333F50, #5A7462, #C3DEB0);
+    border-radius: 50px;
+    width: 10%;
+    color: var(--white-color);
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 2px 0;
+    text-align: center;
+    transition: 0.2s all;
 }
 
 .container {
@@ -127,15 +164,22 @@ form input {
     color: var(--white-color);
 }
 
-.next-btn {
+.backHome-btn {
     display: none;
     background-color: var(--primary-color);
+    border: none;
+    font-size: 1.6rem;
     color: var(--text-color);
     font-weight: 600;
-    width: 150px;
-    border: 0;
-    padding: 10px;
-    margin: 20px auto 0;
+    width: 200px;
+    padding: 10px 15px;
+    margin: 20px auto;
     border-radius: 5px;
     cursor: pointer;
+    transition: 0.2s linear;
+}
+
+.backHome-btn:hover {
+    background-color: var(--black-color);
+    color: var(--white-color);
 }

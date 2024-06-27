@@ -102,16 +102,15 @@
             </div>
             <div>
                 <a class="bot_link" onclick="toggleChat()">
-                    <div class="botNotification"></div>
-                    <video src="" autoplay="true" id="videoCheckFace"></video>
                     <img src="./static/asset/img/Explore/img_bot.png" alt="" class="bot-img">
                 </a>
                 <div class="chat-container" id="chat-container">
                     <label for="" class="tilte_bot">Chat bot</label>
+                    <button onclick="newChat()" class="new-chat-btn">New Chat</button>
                     <div class="chat-box" id="chat-box"></div>
                     <div class="chat-input">
-                        <input type="text" id="user-input" placeholder="Enter your message...">
-                        <button onclick="sendMessage()">Send</button>
+                        <input type="text" id="user-input" placeholder="Nhập câu hỏi của bạn">
+                        <button onclick="sendMessage()" class="send_input">Send</button>
                     </div>
                 </div>
             </div>

@@ -60,12 +60,11 @@
     z-index: 1000;
 }
 
-.tilte_bot {
+.title_bot {
     font-size: 2rem;
     color: var(--green-color);
     margin-bottom: 10px;
 }
-
 
 .chat-box {
     height: 200px;
@@ -143,4 +142,21 @@
 .bot-icon img {
     width: 60px;
     height: 60px;
+}
+
+/* new chat */
+.new-chat-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    background-color: var(--green-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.new-chat-btn:hover {
+    background-color: #0056b3;
 }

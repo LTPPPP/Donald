@@ -1,6 +1,7 @@
 import sys
 import os
 import logging
+import re
 from flask import Blueprint, request, jsonify
 import nltk
 from langchain_community.document_loaders import TextLoader
@@ -19,9 +20,9 @@ from numpy import dot
 from numpy.linalg import norm
 from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
 from sklearn.feature_extraction.text import CountVectorizer
-from translate import Translator as TranslateTranslator
+from transformers import MBartForConditionalGeneration, MBart50TokenizerFast
+from routes.predefined_responses import predefined_responses
 
-# Add the directory containing your modules to the Python path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 logging.basicConfig(level=logging.INFO)
@@ -30,64 +31,53 @@ nltk.download('punkt')
 
 chat_bp = Blueprint('chatgpt_bp', __name__)
 
-# Initialize environment variables
 load_dotenv()
 
-# Ensure dataset file exists
 dataset_path = './dataset.txt'
 if not os.path.isfile(dataset_path):
     raise FileNotFoundError(f"{dataset_path} does not exist.")
 
-# Update the TextLoader to specify the encoding
 loader = TextLoader(dataset_path, encoding='utf-8')
 documents = loader.load()
 
-text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=4)
+text_splitter = CharacterTextSplitter(chunk_size=500, chunk_overlap=4)
 docs = text_splitter.split_documents(documents)
 
 embeddings = HuggingFaceEmbeddings()
 
 index_name = "infinity-demo"
 
-# Ensure the persist directory exists and has write permissions
 persist_directory = "./chroma_data"
 if not os.path.exists(persist_directory):
     os.makedirs(persist_directory)
 
-# Check if the directory has write permissions
 if not os.access(persist_directory, os.W_OK):
     raise PermissionError(f"The directory {persist_directory} is not writable.")
 
-# Initialize Chroma client
 chroma_client = Client(Settings(persist_directory=persist_directory))
-
-# Check if the collection already exists
 existing_collections = [collection.name for collection in chroma_client.list_collections()]
 
 if index_name not in existing_collections:
-    # Create new collection and add documents
     docsearch = Chroma.from_documents(documents=docs, embedding=embeddings, collection_name=index_name, persist_directory=persist_directory)
 else:
-    # Load the existing collection
     docsearch = Chroma(collection_name=index_name, persist_directory=persist_directory)
 
-# Persist the index to disk
 docsearch.persist()
 
-# Define the repo ID and connect to Mixtral model on Huggingface
 repo_id = "mistralai/Mixtral-8x7B-Instruct-v0.1"
 llm = HuggingFaceHub(
     repo_id=repo_id,
-    model_kwargs={"temperature": 0.6, "top_k": 20, "top_p": 0.85, "max_length": 2048},
+    model_kwargs={"temperature": 0.6, "top_k": 20, "top_p": 0.85, "max_length": 5000},
     huggingfacehub_api_token="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"
 )
 
-# Templates
 template = """
-Bạn là chuyên gia tư vấn tâm lý chuyên về tự kỷ ở trẻ em. Sử dụng ngữ cảnh cung cấp để tạo ra câu trả lời chính xác và gần gũi nhất liên quan đến tự kỷ ở trẻ em.
-Câu trả lời của bạn phải giới hạn trong 3 câu hoàn chỉnh và tóm tắt các ý chính của ngữ cảnh.
-Câu trả lời của bạn luôn kết thúc bằng dấu chấm ('.').
-Câu trả lời của bạn phải bằng tiếng Việt.
+Act as an expert in providing psychological advice specifically related to autism in children. 
+Use the provided context to generate the most accurate and empathetic response regarding autism in children.
+Your response should be limited to 2 sentences or 1000 words and summarize the main points of the context.
+The input has been translated from Vietnamese to English. 
+Provide your response in English, which will be translated to Vietnamese later.
+IMPORTANT: Please summarize the main points of the context.
 
 Context: {context}
 Question: {question}
@@ -99,18 +89,19 @@ prompt = PromptTemplate(
     input_variables=["context", "question"]
 )
 
-# Initialize the chatbot
 class ChatBot:
     def __init__(self):
         load_dotenv()
+        self.model_name = "facebook/mbart-large-50-many-to-many-mmt"
+        self.model = MBartForConditionalGeneration.from_pretrained(self.model_name)
+        self.tokenizer = MBart50TokenizerFast.from_pretrained(self.model_name)
         self.rag_chain = (
             {"context": docsearch.as_retriever(), "question": RunnablePassthrough()}
             | prompt
             | llm
             | StrOutputParser()
         )
-        self.translator = TranslateTranslator(to_lang="en")
-        self.translator_vi = TranslateTranslator(to_lang="vi")
+        self.predefined_responses = dict(sorted(predefined_responses.items(), key=lambda x: len(x[0]), reverse=True))
 
     def compute_angle(self, vec1, vec2):
         cos_sim = dot(vec1, vec2) / (norm(vec1) * norm(vec2))
@@ -120,35 +111,43 @@ class ChatBot:
         vectorizer = CountVectorizer(stop_words=list(ENGLISH_STOP_WORDS), max_features=5)
         vectorizer.fit_transform([text])
         return vectorizer.get_feature_names_out()
-
-    def translate_to_english(self, text):
-        return self.translator.translate(text)
-
-    def translate_to_vietnamese(self, text):
-        return self.translator_vi.translate(text)
-
+    
+    def translate(self, text, source_lang, target_lang):
+        self.tokenizer.src_lang = source_lang
+        encoded = self.tokenizer(text, return_tensors="pt")
+        generated_tokens = self.model.generate(
+            **encoded,
+            forced_bos_token_id=self.tokenizer.lang_code_to_id[target_lang]
+        )
+        return self.tokenizer.batch_decode(generated_tokens, skip_special_tokens=True)[0]
+    def check_predefined_responses(self, user_input):
+        lower_input = user_input.lower()
+        for keyword, response in self.predefined_responses.items():
+            if re.search(r'\b' + re.escape(keyword) + r'\b', lower_input):
+                return response
+        return None
+    
 bot = ChatBot()
 
 @chat_bp.route('/chat', methods=['POST'])
 def chat():
     try:
         user_input = request.json['message']
-        
-        # Detect language and translate if necessary
-        user_input = bot.translate_to_english(user_input)
-        
-        # Retrieve document and question vectors
+        predefined_response = bot.check_predefined_responses(user_input)
+        if predefined_response:
+            response = bot.translate(predefined_response, "en_XX", "vi_VN")
+            return jsonify({'response': response})
+        user_input = bot.translate(user_input, "vi_VN", "en_XX")
         question_vector = embeddings.embed_query(user_input)
         search_results = docsearch.similarity_search(user_input, k=1)
         doc_vectors = [result.page_content for result in search_results]
 
-        # Calculate and log angles
         for doc_vector in doc_vectors:
             doc_vector_embedding = embeddings.embed_query(doc_vector)
             cos_sim = bot.compute_angle(question_vector, doc_vector_embedding)
             logger.info(f"Vector deflection cos_sim: {cos_sim:.2f}")
             
-            if cos_sim >= 0.6:
+            if cos_sim >= 0.65:
                 keywords = bot.extract_keywords(user_input)
                 search_query = " ".join(keywords)
                 try:
@@ -159,24 +158,16 @@ def chat():
                     summary = None
 
                 if summary:
-                    # Run the RAG chain again with the Wikipedia summary
                     result = bot.rag_chain.invoke(f"{summary} {user_input}")
-                    print(result)
                     answer_start = "Answer: "
                     response = result.split(answer_start)[-1].strip()
-                    response = bot.translate_to_vietnamese(response)
+                    response = bot.translate(response, "en_XX", "vi_VN")
                     return jsonify({'response': response})
 
         result = bot.rag_chain.invoke(user_input)   
         answer_start = "Answer: "
         response = result.split(answer_start)[-1].strip()
-        response = bot.translate_to_vietnamese(response)
-         # Append the conversation to the dataset file
-        with open(dataset_path, 'r', encoding='utf-8') as f:
-            existing_responses = f.read()
-        if response not in existing_responses:
-            with open(dataset_path, 'a', encoding='utf-8') as f:
-                f.write(f"Answer: {response}\n")
+        response = bot.translate(response, "en_XX", "vi_VN")
         return jsonify({'response': response})
     except Exception as e:
         logger.error(f"Error: {e}")
