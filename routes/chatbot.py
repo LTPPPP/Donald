@@ -147,7 +147,7 @@ def chat():
             cos_sim = bot.compute_angle(question_vector, doc_vector_embedding)
             logger.info(f"Vector deflection cos_sim: {cos_sim:.2f}")
             
-            if cos_sim >= 0.65:
+            if cos_sim >= 0.9:
                 keywords = bot.extract_keywords(user_input)
                 search_query = " ".join(keywords)
                 try:
@@ -172,3 +172,4 @@ def chat():
     except Exception as e:
         logger.error(f"Error: {e}")
         return jsonify({'error': str(e)}), 500
+        

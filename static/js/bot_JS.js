@@ -80,8 +80,3 @@ function newChat() {
     document.getElementById("chat-box").innerHTML = '';
     appendMessage("bot", "Xin chào, tôi là chatbot hỗ trợ và tư vấn về tự kỷ ở trẻ em, tôi có thể giúp gì cho bạn?");
 }
-
-chatBox.scrollTo({
-    top: chatBox.scrollHeight,
-    behavior: 'smooth'
-});
