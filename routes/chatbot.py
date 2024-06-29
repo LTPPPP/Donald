@@ -64,11 +64,11 @@ else:
 
 docsearch.persist()
 
-repo_id = "mistralai/Mixtral-8x7B-Instruct-v0.1"
+repo_id = "MODEL_ID"
 llm = HuggingFaceHub(
     repo_id=repo_id,
     model_kwargs={"temperature": 0.6, "top_k": 20, "top_p": 0.85, "max_length": 5000},
-    huggingfacehub_api_token="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"
+    huggingfacehub_api_token="HUGGING_FACE_KEY_API"
 )
 
 template = """
@@ -92,7 +92,7 @@ prompt = PromptTemplate(
 class ChatBot:
     def __init__(self):
         load_dotenv()
-        self.model_name = "facebook/mbart-large-50-many-to-many-mmt"
+        self.model_name = "MODEL_ID"
         self.model = MBartForConditionalGeneration.from_pretrained(self.model_name)
         self.tokenizer = MBart50TokenizerFast.from_pretrained(self.model_name)
         self.rag_chain = (
