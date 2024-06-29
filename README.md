@@ -39,7 +39,7 @@ Ensure you have the following installed:
 1. Navigate to the `python` folder:
 
    ```bash
-   cd python
+   cd Donald
    ```
 2. Run the server:
 
@@ -48,8 +48,6 @@ Ensure you have the following installed:
    ```
 
 ## Folder Structure
-
-- `python`: Contains Python scripts and server code.
 - `templates`: HTML templates for the web application.
 - `static`: Static files such as CSS and JavaScript.
 - `routes`: Application routes.
