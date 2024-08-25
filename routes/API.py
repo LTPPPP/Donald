@@ -1,0 +1,4 @@
+# API of gemini
+MODEL_NAME =""
+VISION_MODEL=""
+API_KEY_GEMINI =""
