@@ -35,6 +35,7 @@ UPLOAD_FOLDER = 'uploads'
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
+<<<<<<< HEAD
 # Initialize the main template
 MAIN_TEMPLATE = """
 Chủ nhân, người tạo ra bạn là Lâm Tấn Phát là chàng trai đẹp trai, tài năng và rất thích học hỏi.
@@ -46,14 +47,74 @@ Bạn là trợ lý giáo dục chuyên về tư vấn vấn đề tâm lý ở 
 5. Tóm tắt câu trả lời lại tối đa 1000 chữ.
 6. Chỉ trả lời tóm tắt đúng ý.
 Hãy trả lời ngắn gọn nhưng đầy đủ. Nếu cần thêm thông tin, hãy hỏi người dùng.
+=======
+text_splitter = CharacterTextSplitter(chunk_size=500, chunk_overlap=4)
+docs = text_splitter.split_documents(documents)
+
+embeddings = HuggingFaceEmbeddings()
+
+index_name = "infinity-demo"
+
+persist_directory = "./chroma_data"
+if not os.path.exists(persist_directory):
+    os.makedirs(persist_directory)
+
+if not os.access(persist_directory, os.W_OK):
+    raise PermissionError(f"The directory {persist_directory} is not writable.")
+
+chroma_client = Client(Settings(persist_directory=persist_directory))
+existing_collections = [collection.name for collection in chroma_client.list_collections()]
+
+if index_name not in existing_collections:
+    docsearch = Chroma.from_documents(documents=docs, embedding=embeddings, collection_name=index_name, persist_directory=persist_directory)
+else:
+    docsearch = Chroma(collection_name=index_name, persist_directory=persist_directory)
+
+docsearch.persist()
+
+repo_id = "MODEL_ID"
+llm = HuggingFaceHub(
+    repo_id=repo_id,
+    model_kwargs={"temperature": 0.6, "top_k": 20, "top_p": 0.85, "max_length": 5000},
+    huggingfacehub_api_token="HUGGING_FACE_KEY_API"
+)
+
+template = """
+Act as an expert in providing psychological advice specifically related to autism in children. 
+Use the provided context to generate the most accurate and empathetic response regarding autism in children.
+Your response should be limited to 2 sentences or 1000 words and summarize the main points of the context.
+The input has been translated from Vietnamese to English. 
+Provide your response in English, which will be translated to Vietnamese later.
+IMPORTANT: Please summarize the main points of the context.
+
+Context: {context}
+Question: {question}
+Answer: 
+>>>>>>> 30f09b65bf7225c5b7e7050feb9e04de007f7854
 """
 
 # Dictionary to store user context
 user_context = {}
 
+<<<<<<< HEAD
 def generate_response(prompt):
     response = model.generate_content(prompt).text
     return response
+=======
+class ChatBot:
+    def __init__(self):
+        load_dotenv()
+        self.model_name = "MODEL_ID"
+        self.model = MBartForConditionalGeneration.from_pretrained(self.model_name)
+        self.tokenizer = MBart50TokenizerFast.from_pretrained(self.model_name)
+        self.rag_chain = (
+            {"context": docsearch.as_retriever(), "question": RunnablePassthrough()}
+            | prompt
+            | llm
+            | StrOutputParser()
+        )
+        self.predefined_responses = dict(sorted(predefined_responses.items(), key=lambda x: len(x[0]), reverse=True))
+>>>>>>> 30f09b65bf7225c5b7e7050feb9e04de007f7854
 
 def ensure_directory_exists(directory):
     if not os.path.exists(directory):
@@ -147,6 +208,12 @@ def chatbot():
         log_conversation(user_id, user_input, response)
         return jsonify({'response': response})
     except Exception as e:
+<<<<<<< HEAD
         error_message = "An error occurred while processing your request. Please try again."
         log_conversation(user_id, user_input, error_message)
         return jsonify({'response': error_message})
+=======
+        logger.error(f"Error: {e}")
+        return jsonify({'error': str(e)}), 500
+        
+>>>>>>> 30f09b65bf7225c5b7e7050feb9e04de007f7854
